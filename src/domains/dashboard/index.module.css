@@ -1,0 +1,79 @@
+/*---------- Listing Card Styles ----------*/
+.lcContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px;
+  min-width: 270px;
+  max-width: 495px;
+  padding: 10px 20px;
+  border-radius: 16px;
+}
+
+.lcImg {
+  flex: 1;
+  border-radius: 10px;
+}
+
+.lcTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 3;
+  padding: 0px 10px;
+  min-width: 200px;
+}
+
+.lcBedBathContainer {
+  display: flex;
+}
+
+/*---------- Listing List Styles ----------*/
+.llContainer {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/*---------- With Filters Styles ----------*/
+.wfContainer {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  margin: -16px -16px;
+}
+
+.wfFiltersContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px;
+  flex-wrap: wrap;
+}
+
+.wfPriceFilter {
+  display: flex;
+  flex-direction: column;
+}
+
+.wfRangeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 200px;
+  height: 40px;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+
+.wfRangeTitle {
+  margin-top: -10px;
+  margin-bottom: -40px;
+}
+
+.wfComponentContainer {
+  height: 85%;
+  flex-wrap: wrap;
+}

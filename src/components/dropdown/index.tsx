@@ -1,37 +1,24 @@
 import { ChangeEventHandler } from "react";
+import style from "./index.module.css";
 
 interface Props {
   title: string;
   onChange: ChangeEventHandler<HTMLSelectElement>;
-  backgroundColor?: string;
 }
 
 const Dropdown = (props: Props) => {
-  const { title, backgroundColor, onChange } = props;
+  const { title, onChange } = props;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        margin: "10px",
-        backgroundColor: backgroundColor ?? "white",
-        borderRadius: "5px",
-        padding: "5px",
-      }}
-    >
-      {title}
+    <div className={style.container}>
+      <h5>{title}</h5>
       <select
-        style={{
-          marginLeft: "8px",
-          backgroundColor: backgroundColor ?? "white",
-          borderRadius: "5px",
-          border: "none",
-        }}
+        className={style.select}
         onChange={onChange}
         name={title.toLocaleLowerCase()}
       >
-        <option key={'all'} value={0}>
-          -
+        <option key={"all"} value={0}>
+          All
         </option>
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((option: number) => (
           <option key={option} value={option + 1}>

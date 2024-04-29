@@ -1,6 +1,8 @@
-import { Children, useState } from "react";
-import Dropdown from "../../components/dropdown";
-import { JsxElement } from "typescript";
+import { useState } from "react";
+import Dropdown from "../../components/Dropdown";
+import { theme } from "../../assets/theme";
+import Input from "../../components/Input";
+import style from "./index.module.css";
 
 interface Props {
   Component: any;
@@ -10,13 +12,11 @@ interface Props {
 const WithFilter = (props: Props) => {
   const { dataset, Component } = props;
   const [query, setQuery] = useState({
-    price: 6,
+    price: 100,
     bedrooms: 0,
     bathrooms: 0,
     parking: 0,
   });
-  console.log("query: ", query);
-
   const handleOnChange = (e: any) => {
     setQuery({
       ...query,
@@ -25,76 +25,40 @@ const WithFilter = (props: Props) => {
   };
 
   return (
-    <div
-      style={{
-        height: "80%",
-        backgroundColor: "#61a5c2",
-        margin: "0px 20px",
-        borderRadius: "15px",
-      }}
-    >
+    <div className={style.wfContainer}>
       <div
-        style={{
-          display: "flex",
-          margin: "10px 40px",
-          justifyContent: "space-between",
-          backgroundColor: "#2a6f97",
-          borderRadius: "16px",
-          alignItems: "center",
-        }}
+        className={style.wfFiltersContainer}
+        style={{ backgroundColor: `${theme.palette.primary}` }}
       >
-        <div style={{ display: "flex" }}>
-          <Dropdown
-            title="Bedrooms"
-            backgroundColor="#a9d6e5"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div style={{ display: "flex" }}>
-          <Dropdown
-            title="Bathrooms"
-            backgroundColor="#a9d6e5"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div style={{ display: "flex" }}>
-          <Dropdown
-            title="Parking"
-            backgroundColor="#a9d6e5"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            backgroundColor: "#a9d6e5",
-            borderRadius: "10px",
-            margin: "0px 10px",
-            padding: "8px",
-            height: "20px",
-          }}
-        >
-          Price Range
-          <input
-            type="range"
-            id="volume"
-            name="price"
-            min="0"
-            max="11"
-            onChange={handleOnChange}
-          />
+        <Dropdown title="Bedrooms" onChange={handleOnChange} />
+        <Dropdown title="Bathrooms" onChange={handleOnChange} />
+        <Dropdown title="Parking" onChange={handleOnChange} />
+
+        <div className={style.wfPriceFilter}>
+          <div style={{ marginTop: "-20px", marginBottom: "-10px" }}>
+            <h5>Price Range</h5>
+          </div>
+          <div
+            className={style.wfRangeContainer}
+            style={{ backgroundColor: `${theme.palette.white}` }}
+          >
+            <div className={style.wfRangeTitle}>
+              <h6>{`${
+                query.price == 100 ? "All" : `$ 0 - ${query.price * 100}`
+              }`}</h6>
+            </div>
+            <Input
+              type="range"
+              onChange={handleOnChange}
+              name="price"
+              value={query.price}
+            />
+          </div>
         </div>
       </div>
-      <div
-        style={{
-          height: "85%",
-          flexWrap: "wrap",
-        }}
-      >
+      <div className={style.wfComponentContainer}>
         <Component query={query} dataset={dataset} />
       </div>
-      
     </div>
   );
 };

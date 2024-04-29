@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+}
+
+.select {
+  border: none;
+  height: 30px;
+  width: 160px;
+  margin-top: -15px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}

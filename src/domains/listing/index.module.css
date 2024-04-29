@@ -1,0 +1,38 @@
+/*---------- Agent Form Styles ----------*/
+.afContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.afMsg {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding: 20px;
+  border-radius: 6px;
+}
+/*---------- Listing Details Styles ----------*/
+
+.ldTitleInfoT {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ldTitleInfoI {
+  margin-left: "6px";
+}
+
+.ldContainer {
+  display: flex;
+  flex: 1;
+}
+
+.ldImg {
+  height: 200px;
+  margin-right: 16px;
+}
+.ldMainInfo {
+  display: flex;
+  flex-direction: column;
+}

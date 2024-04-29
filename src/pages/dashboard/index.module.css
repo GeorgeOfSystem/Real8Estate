@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: flex-end;
+}

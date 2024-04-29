@@ -3,6 +3,11 @@ export const filterItems = (query: any, items: any) => {
     (item: any) =>
       item.baths >= query.bathrooms &&
       item.beds >= query.bedrooms &&
-      item.price <= query.price
+      (query.price == 100 ? true : item.price <= query.price * 100)
   );
 };
+
+export const emailValidation = (email: string): boolean => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}

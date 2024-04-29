@@ -15,9 +15,6 @@ function App() {
       path: "/listing/:listingId",
       element: <Listing />,
     },
-    {
-      path: "",
-    },
   ]);
   return <RouterProvider router={router} />;
 }

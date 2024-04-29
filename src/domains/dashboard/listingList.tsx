@@ -1,23 +1,13 @@
 import { filterItems } from "../../utils";
 import ListingCard from "./listingCard";
+import style from "./index.module.css";
 
 const ListingList = ({ query, dataset }: any) => {
   const items = filterItems(query, dataset);
   return (
-    <div
-      style={{
-        overflow: "auto",
-        display: "flex",
-        height: "100%",
-        flexDirection: "row",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className={style.llContainer}>
       {items.map((listing: any) => (
-        <ListingCard
-          key={listing._id}
-          listing={listing}
-        />
+        <ListingCard key={listing._id} listing={listing} />
       ))}
     </div>
   );
